@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Giphy API's</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Comedian Giphy Search</h1>
+        
+        <form id="giphy-form">
+          <label for="giphy-input">Search Giphys</label>
+          <input type="text" id="giphy-input">
+          <input id="add-giphy" type="submit" value="Submit">
+          <br>
+          <!-- Button triggers new Giphy to be added -->
+          
+        </form>
+
+        <div id="buttons">
+            <button data-person="brian regan">
+              Brian Regan
+            </button>
+                <button data-person="steve martin">
+                Steve Martin
+                </button>
+                    <button data-person="rodney dangerfield">
+                    Rodney Dangerfield
+                    </button>
+                            <button data-person="johnny knoxville">
+                            Johnny Knoxville
+                            </button>
+                                <button data-person="george w bush">
+                                W 
+                                </button>
+                                    <button data-person="whitney cummings">
+                                        Whitney
+                                    </button>
+                                        <button data-person="tim allen">
+                                            Tim Allen
+                                        </button>
+                                            <button data-person="jerry seinfeld">
+                                                Jerry Seinfeld
+                                            </button>
+        </div>
+        
+        <div id="giphys-view"></div>
+
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script type="text/javascript" src="./assets/javascript/app.js"></script>
+</body>
+</html>
