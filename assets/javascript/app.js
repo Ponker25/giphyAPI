@@ -1,3 +1,4 @@
+
 var apiKey = "&api_key=W6tKfO9fAxQyTk238cVwxFP7ieO8fOLF&limit=10";
 var giphyButtons = ["Jerry Seinfeld", "Brian Regan", "Rodney Dangerfield", "Whitney Cummings", "George W Bush", "Tim Allen", "Johnny Knoxville", "Steve Martin"];
 
@@ -32,8 +33,12 @@ $.ajax({
         var rating = results[i].rating;
         var p = $("<p>").text("Rating: " + rating);
         var personImage = $("<img>");
-          personImage.attr("src", results[i].images.fixed_height.url);
+          personImage.attr("src", results[i].images.fixed_width_still.url);
         // insert data attributes here for still and animate
+            personImage.attr("data-state","data-still", results[i].images.fixed_width_still.url);
+            personImage.attr("data-state","data-animate", results[i].images.fixed_width.url);
+            personImage.attr("data-state", "still");
+            
             gifDiv.append(p);
             gifDiv.append(personImage);
         // prepending newly made div to the HTML page, and going to the next one.
@@ -56,5 +61,8 @@ $.ajax({
   });
     
   // function that is on click the submit button
+    // $("#add-giphy").on("click", function() {
+      
+    // }
     // add info from the form userInput to the giphyArray
       // buttonDisplay(); 
