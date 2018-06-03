@@ -6,12 +6,12 @@ function buttonDisplay() {
   $("#buttons").empty()
   // for loop through your array of buttons
   for (i = 0; i < giphyButtons.length; i++) {
-    $("#buttons").append("<button>" + giphyButtons[i]+ "</button>")
+    $("#buttons").append("<button id='gifButton'>" + giphyButtons[i]+ "</button>")
   }
 }
 buttonDisplay();
 
-$("button").on("click", function() {
+$("#buttons").on("click", "#gifButton", function() {
   $("#giphys-view").empty();
   var person = $(this).attr("data-person");
   var imageType = $(this).text();
@@ -32,11 +32,11 @@ $.ajax({
         
         var rating = results[i].rating;
         var p = $("<p>").text("Rating: " + rating);
-        var personImage = $("<img>");
+        var personImage = $("<img id='gifImg'>");
           personImage.attr("src", results[i].images.fixed_width_still.url);
         // insert data attributes here for still and animate
-            personImage.attr("data-state","data-still", results[i].images.fixed_width_still.url);
-            personImage.attr("data-state","data-animate", results[i].images.fixed_width.url);
+            personImage.attr("data-still", results[i].images.fixed_width_still.url);
+            personImage.attr("data-animate", results[i].images.fixed_width.url);
             personImage.attr("data-state", "still");
             
             gifDiv.append(p);
@@ -45,7 +45,11 @@ $.ajax({
         $("#giphys-view").prepend(gifDiv);
       }
 
-      $("<img>").on("click", function() {
+     
+    });
+  });
+$("#giphys-view").on("click", "#gifImg", function() {
+     console.log("img clicked");
         var state = $(this).attr("data-state");
             console.log(state);
     
@@ -56,13 +60,13 @@ $.ajax({
               $(this).attr("src", $(this).attr("data-still"));
               $(this).attr("data-state", "still");
             }
-      });
-    });
-  });
-    
+      });  
   // function that is on click the submit button
-    // $("#add-giphy").on("click", function() {
-      
-    // }
+    $("#add-giphy").on("click", function(event) {
+      event.preventDefault();
+      var newButtonText = $("#giphy-input").val();
+      console.log(newButtonText);
+      giphyButtons.push(newButtonText)
+      buttonDisplay(); 
+    })
     // add info from the form userInput to the giphyArray
-      // buttonDisplay(); 
